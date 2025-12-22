@@ -25,7 +25,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"', { stream: accessLogStream }))
 
 app.get('/api/persons/', (request, response) => {
-  Person.findById({}).then(persons => response.json(persons))
+  Person.find({}).then(persons => response.json(persons))
 })
 
 // let getCurrentPersonsLength = persons.length
